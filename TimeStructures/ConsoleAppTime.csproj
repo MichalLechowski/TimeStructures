@@ -48,5 +48,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Timee\Timee.csproj">
+      <Project>{55f7e334-8eff-4a10-9843-8e1e3e7a9e5c}</Project>
+      <Name>Timee</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

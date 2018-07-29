@@ -4,4 +4,8 @@
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Include="C:\Users\Michal_Dell\Dropbox\dotNET\WSEI .NET\programowanie obiektowe C#\Time.cs" Link="Time.cs" />
+  </ItemGroup>
+
 </Project>
