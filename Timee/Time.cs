@@ -84,7 +84,7 @@ namespace TimeLibrary
             return Hours.GetHashCode() * 17 ^ (Minutes.GetHashCode() * Seconds.GetHashCode());
         }
         /// <summary>
-        /// Przeciążenie globalnej (Object) metody Equals w celu umożliwienia porównywania wartości struktur
+        /// Implementacja globalnej (Object) metody Equals w celu umożliwienia porównywania wartości struktur
         /// w naturalny sposób na podstawie wartości godziny, minuty, sekundy
         /// </summary>
         /// <param name="other"></param>
@@ -115,7 +115,7 @@ namespace TimeLibrary
             return this.Equals((object)other);
         }
         /// <summary>
-        /// Implementacja metody Equals dla obiektów klasy Time.
+        /// Implementacja metody CompareTo() dla obiektów klasy Time.
         /// Wymagane w celu implementacji IEquatable<Time>
         /// </summary>
         /// <param name="other"></param>
@@ -169,7 +169,7 @@ namespace TimeLibrary
             return obj1.Hours == obj2.Hours && obj1.Minutes == obj2.Minutes && obj1.Seconds == obj2.Seconds;
         }
         /// <summary>
-        /// Przeciążenie operatora !=.
+        /// Przeciążenie operatora !=
         /// </summary>
         /// <param name="obj1">Struktura do porównania</param>
         /// <param name="obj2">Struktura porównywana</param>
@@ -221,9 +221,9 @@ namespace TimeLibrary
             return obj1.CompareTo(obj2) <= 0;
         }
         /// <summary>
-        /// Metoda umożliwająca dodanie odcinku czasu klasy TimePeriod do godziny klasy Time
+        /// Metoda umożliwająca dodanie odcinku czasu struktury TimePeriod do godziny struktury Time
         /// </summary>
-        /// <param name="odcinekCzasowy">Odcinek czasu klasy TimePeriod</param>
+        /// <param name="odcinekCzasowy">Odcinek czasu w postaci struktury klasy TimePeriod</param>
         /// <returns>
         /// Zwraca obiekt this klasy Time z dodaną wartością odcinka czasowego
         /// </returns>
