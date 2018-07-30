@@ -104,7 +104,7 @@ namespace TimeLibrary
         }
         /// <summary>
         /// Odwołanie metody Equals w odmianie generycznej do globalnej (Object) metody Equals,
-        /// wymagane w celu implementacji interfejsu generycznego IEquatable<Time>
+        /// wymagane w celu implementacji interfejsu generycznego IEquatable<>
         /// </summary>
         /// <param name="other"></param>
         /// <returns>
@@ -114,7 +114,14 @@ namespace TimeLibrary
         {
             return this.Equals((object)other);
         }
-
+        /// <summary>
+        /// Implementacja metody Equals dla obiektów klasy Time.
+        /// Wymagane w celu implementacji IEquatable<Time>
+        /// </summary>
+        /// <param name="other"></param>
+        /// <returns>
+        /// Zwraca wartość bool informującą o naturalnej równości/nierówności struktur Time
+        /// </returns>
         public int CompareTo(Time other)
         {
             if (this.Hours == other.Hours && this.Minutes == other.Minutes && this.Seconds == other.Seconds)
@@ -150,7 +157,6 @@ namespace TimeLibrary
 
 
         }
-
         /// <summary>
         /// Przeciążenie operatora == w celu umożliwienia implementacji metody Equals,
         /// a co za tym idzie naturalnego porównywania struktur
@@ -214,7 +220,13 @@ namespace TimeLibrary
         {
             return obj1.CompareTo(obj2) <= 0;
         }
-
+        /// <summary>
+        /// Metoda umożliwająca dodanie odcinku czasu klasy TimePeriod do godziny klasy Time
+        /// </summary>
+        /// <param name="odcinekCzasowy">Odcinek czasu klasy TimePeriod</param>
+        /// <returns>
+        /// Zwraca obiekt this klasy Time z dodaną wartością odcinka czasowego
+        /// </returns>
         public Time Plus (TimePeriod odcinekCzasowy)
         {
             long totalSeconds = 0;
@@ -226,7 +238,14 @@ namespace TimeLibrary
             this.Seconds = (byte)((totalSeconds % 3600) % 60);
             return this;
         }
-
+        /// <summary>
+        /// Statyczna odmiana metody instancyjnej Plus
+        /// </summary>
+        /// <param name="obj1">Obiekt klasy Time zawierający godzinę</param>
+        /// <param name="obj2">Obiekt klasy TimePeriod zawierający odcinek czasowy</param>
+        /// <returns>
+        /// Zwraca obiekt this klasy Time na podstawie wywołania instancyjnej wersji metody Plus
+        /// </returns>
         public static Time Plus (Time obj1, TimePeriod obj2)
         {
             return obj1.Plus(obj2);
