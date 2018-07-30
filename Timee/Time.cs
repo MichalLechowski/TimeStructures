@@ -23,11 +23,15 @@ namespace TimeLibrary
         /// <param name="sekunda">Wartość sekundy, parametr opcjonalny, domyślna wartość 0</param>
         public Time(byte godzina, byte minuta = 0, byte sekunda = 0)
         {
+            if (godzina >= 24 || minuta >= 60 || sekunda >= 60)
+            {
+                throw new ArgumentException("Błędne dane, dozwolone wartości: godzina<0,24>, minuta<0,60>, sekunda<0,60>");
+            }
             try
             {
-                Hours = Convert.ToByte(godzina % 24);
-                Minutes = Convert.ToByte(minuta % 60);
-                Seconds = Convert.ToByte(sekunda % 60);
+                Hours = Convert.ToByte(godzina);
+                Minutes = Convert.ToByte(minuta);
+                Seconds = Convert.ToByte(sekunda);
             }
             catch (FormatException)
             {
@@ -52,9 +56,9 @@ namespace TimeLibrary
             }
             try
             {
-                Hours = (byte)(Convert.ToByte(tab[0]) % 24);
-                Minutes = (byte)(Convert.ToByte(tab[1]) % 60);
-                Seconds = (byte)(Convert.ToByte(tab[2]) % 60);
+                Hours = (byte)(Convert.ToByte(tab[0]));
+                Minutes = (byte)(Convert.ToByte(tab[1]));
+                Seconds = (byte)(Convert.ToByte(tab[2]));
             }
             catch (FormatException)
             {
