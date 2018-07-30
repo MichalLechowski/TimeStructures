@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Timee
+namespace TimeLibrary
 {
     /// <summary>
     /// Struktura przechowująca czas w formacie hh:mm:ss.
@@ -52,9 +52,9 @@ namespace Timee
             }
             try
             {
-                Hours = Convert.ToByte(tab[0]);
-                Minutes = Convert.ToByte(tab[1]);
-                Seconds = Convert.ToByte(tab[2]);
+                Hours = (byte)(Convert.ToByte(tab[0]) % 24);
+                Minutes = (byte)(Convert.ToByte(tab[1]) % 60);
+                Seconds = (byte)(Convert.ToByte(tab[2]) % 60);
             }
             catch (FormatException)
             {
@@ -213,6 +213,23 @@ namespace Timee
         public static bool operator <=(Time obj1, Time obj2)
         {
             return obj1.CompareTo(obj2) <= 0;
+        }
+
+        public Time Plus (TimePeriod odcinekCzasowy)
+        {
+            long totalSeconds = 0;
+
+            totalSeconds = (this.Hours * 3600 + this.Minutes * 60 + this.Seconds + odcinekCzasowy.SecondsTotal);
+
+            this.Hours = (byte)(totalSeconds / 3600);
+            this.Minutes = (byte)((totalSeconds % 3600) / 60);
+            this.Seconds = (byte)((totalSeconds % 3600) % 60);
+            return this;
+        }
+
+        public static Time Plus (Time obj1, TimePeriod obj2)
+        {
+            return obj1.Plus(obj2);
         }
     }
 }

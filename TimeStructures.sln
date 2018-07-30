@@ -5,11 +5,9 @@ VisualStudioVersion = 15.0.27703.2000
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleAppTime", "TimeStructures\ConsoleAppTime.csproj", "{C106E0FC-B86F-4288-882E-2D2F2582731E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TimeLibrary", "TimeLibrary\TimeLibrary.csproj", "{4600AF6F-DDD1-40FD-9417-FC59DD3884A0}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestTime", "UnitTestTime\UnitTestTime.csproj", "{A1CC0284-136F-4BA3-9674-E71B713DE09A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Timee", "Timee\Timee.csproj", "{55F7E334-8EFF-4A10-9843-8E1E3E7A9E5C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Timee", "Timee\Timee.csproj", "{55F7E334-8EFF-4A10-9843-8E1E3E7A9E5C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,10 +19,6 @@ Global
 		{C106E0FC-B86F-4288-882E-2D2F2582731E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C106E0FC-B86F-4288-882E-2D2F2582731E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C106E0FC-B86F-4288-882E-2D2F2582731E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4600AF6F-DDD1-40FD-9417-FC59DD3884A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4600AF6F-DDD1-40FD-9417-FC59DD3884A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4600AF6F-DDD1-40FD-9417-FC59DD3884A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4600AF6F-DDD1-40FD-9417-FC59DD3884A0}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A1CC0284-136F-4BA3-9674-E71B713DE09A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A1CC0284-136F-4BA3-9674-E71B713DE09A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A1CC0284-136F-4BA3-9674-E71B713DE09A}.Release|Any CPU.ActiveCfg = Release|Any CPU
