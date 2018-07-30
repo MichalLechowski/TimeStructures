@@ -27,10 +27,22 @@ namespace TimeLibrary
         /// <param name="sekundy">Wartość sekund. Domyślna wartość 0</param>
         public TimePeriod(byte godziny = 0, byte minuty = 0, byte sekundy = 0)
         {
-            Hours = godziny;
-            Minutes = minuty;
-            Seconds = sekundy;
-            SecondsTotal = Hours * 3600 + Minutes * 60 + Seconds;
+            if (minuty >= 60 || sekundy >= 60)
+            {
+                throw new FormatException("Niepoprawny zakres parametrów, dozwolone wartości: minuty<0,60), sekundy<0,60)");
+            }
+            try
+            {
+                Hours = godziny;
+                Minutes = minuty;
+                Seconds = sekundy;
+                SecondsTotal = Hours * 3600 + Minutes * 60 + Seconds;
+            }
+            catch (Exception)
+            {
+                throw new FormatException("Błędny typ jednego z parametrów: godzina, minuta, sekunda.");
+            }
+
         }
         /// <summary>
         /// Konstruktor inicjalizujący strukturę poprzez wyliczenie różnicy czasowej
@@ -61,7 +73,7 @@ namespace TimeLibrary
             }
             try
             {
-                SecondsTotal = (byte)(Convert.ToByte(tab[0]) * 3600 + Convert.ToByte(tab[1]) * 60 + Convert.ToByte(tab[2]));
+                SecondsTotal = (Convert.ToByte(tab[0]) * 3600 + Convert.ToByte(tab[1]) * 60 + Convert.ToByte(tab[2]));
 
                 Hours = Convert.ToByte(tab[0]);
                 Minutes = Convert.ToByte(tab[1]);

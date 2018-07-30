@@ -37,7 +37,6 @@ namespace TimeLibrary
             {
                 throw new FormatException("Błędny typ jednego z parametrów: godzina, minuta, sekunda.");
             }
-
         }
 
         /// <summary>

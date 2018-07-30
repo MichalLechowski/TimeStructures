@@ -13,7 +13,7 @@ namespace TimeStructures
         {
 
             Time czas = new Time(10, 10, 10);
-            TimePeriod odcinek = new TimePeriod(26, 60, 10);
+            TimePeriod odcinek = new TimePeriod(26, 59, 10);
 
             czas.Plus(odcinek);
 
