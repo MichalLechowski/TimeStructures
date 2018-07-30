@@ -92,7 +92,7 @@ namespace TimeLibrary
         /// </returns>
         public override string ToString()
         {
-            return $"Odcinek czasowy o długości: {Hours}, {Minutes}, {Seconds}";
+            return $"Odcinek czasowy o długości: {Hours}:{Minutes}:{Seconds}";
         }
         /// <summary>
         /// Metoda umożliwająca dodawanie dwóch struktur klasy TimePeriod
