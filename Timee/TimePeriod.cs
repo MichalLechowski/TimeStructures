@@ -58,12 +58,13 @@ namespace TimeLibrary
 
         public TimePeriod Plus(TimePeriod obj1)
         {
+            this.SecondsTotal += obj1.SecondsTotal;
             this.Hours += obj1.Hours;
             this.Minutes += obj1.Minutes;
             this.Seconds += obj1.Seconds;
-            this.SecondsTotal += obj1.SecondsTotal;
             return this;
         }
+
         public static TimePeriod Plus(TimePeriod obj1, TimePeriod obj2)
         {
             return obj1.Plus(obj2);
@@ -71,7 +72,18 @@ namespace TimeLibrary
 
         public int CompareTo(TimePeriod other)
         {
-            throw new NotImplementedException();
+            if (this.SecondsTotal > other.SecondsTotal)
+            {
+                return 1;
+            }
+            else if (this.SecondsTotal < other.SecondsTotal)
+            {
+                return -1;
+            }
+            else
+            {
+                return 0;
+            }
         }
 
         public bool Equals(TimePeriod other)
@@ -97,10 +109,25 @@ namespace TimeLibrary
         {
             return obj1.SecondsTotal == obj2.SecondsTotal;
         }
-
         public static bool operator != (TimePeriod obj1, TimePeriod obj2)
         {
             return !(obj1.SecondsTotal == obj2.SecondsTotal);
+        }
+        public static bool operator > (TimePeriod obj1, TimePeriod obj2)
+        {
+            return obj1.CompareTo(obj2) > 0;
+        }
+        public static bool operator < (TimePeriod obj1, TimePeriod obj2)
+        {
+            return obj1.CompareTo(obj2) < 0;
+        }
+        public static bool operator >= (TimePeriod obj1, TimePeriod obj2)
+        {
+            return obj1.CompareTo(obj2) >= 0;
+        }
+        public static bool operator <= (TimePeriod obj1, TimePeriod obj2)
+        {
+            return obj1.CompareTo(obj2) <= 0;
         }
     }
 }
