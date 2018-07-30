@@ -221,7 +221,7 @@ namespace TimeLibrary
 
             totalSeconds = (this.Hours * 3600 + this.Minutes * 60 + this.Seconds + odcinekCzasowy.SecondsTotal);
 
-            this.Hours = (byte)(totalSeconds / 3600);
+            this.Hours = (byte)((totalSeconds / 3600) % 24);
             this.Minutes = (byte)((totalSeconds % 3600) / 60);
             this.Seconds = (byte)((totalSeconds % 3600) % 60);
             return this;

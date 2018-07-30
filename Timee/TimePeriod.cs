@@ -4,7 +4,7 @@ using System.Text;
 
 namespace TimeLibrary
 {
-    public struct TimePeriod
+    public struct TimePeriod: IEquatable<TimePeriod>, IComparable<TimePeriod>
     {
         public byte Seconds { get; private set; }
         public byte Hours { get; set; }
@@ -21,9 +21,9 @@ namespace TimeLibrary
 
         public TimePeriod(Time obj1, Time obj2)
         {
-            Hours = (byte)(obj1.Hours - obj2.Hours);
-            Minutes = (byte)(obj1.Minutes - obj2.Minutes);
-            Seconds = (byte)(obj1.Seconds - obj2.Seconds);
+            Hours = (byte)Math.Abs(obj1.Hours - obj2.Hours);
+            Minutes = (byte)Math.Abs(obj1.Minutes - obj2.Minutes);
+            Seconds = (byte)Math.Abs(obj1.Seconds - obj2.Seconds);
             SecondsTotal = Hours * 3600 + Minutes * 60 + Seconds;
         }
 
@@ -54,6 +54,53 @@ namespace TimeLibrary
         public override string ToString()
         {
             return $"Odcinek czasowy o długości: {Hours}, {Minutes}, {Seconds}";
+        }
+
+        public TimePeriod Plus(TimePeriod obj1)
+        {
+            this.Hours += obj1.Hours;
+            this.Minutes += obj1.Minutes;
+            this.Seconds += obj1.Seconds;
+            this.SecondsTotal += obj1.SecondsTotal;
+            return this;
+        }
+        public static TimePeriod Plus(TimePeriod obj1, TimePeriod obj2)
+        {
+            return obj1.Plus(obj2);
+        }
+
+        public int CompareTo(TimePeriod other)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool Equals(TimePeriod other)
+        {
+            //other jest zawsze TimePeriod, bo jest strukturą
+            if (other is TimePeriod && this == (TimePeriod)other)
+            {
+                return other is TimePeriod && this == (TimePeriod)other;
+
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public override int GetHashCode()
+        {
+            return (byte)(this.Hours * 17 ^ (this.SecondsTotal));
+        }
+
+        public static bool operator == (TimePeriod obj1, TimePeriod obj2)
+        {
+            return obj1.SecondsTotal == obj2.SecondsTotal;
+        }
+
+        public static bool operator != (TimePeriod obj1, TimePeriod obj2)
+        {
+            return !(obj1.SecondsTotal == obj2.SecondsTotal);
         }
     }
 }
